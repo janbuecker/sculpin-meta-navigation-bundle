@@ -1,0 +1,19 @@
+{
+    "name": "janbuecker/sculpin-meta-navigation-bundle",
+    "description": "Sculpin Meta Navigation Bundle",
+    "type": "library",
+    "keywords": ["tree", "meta", "navigation", "pages", "blogging", "blog", "static", "site"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan Bücker",
+            "email": "jan@buecker.io"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": { "Janbuecker\\Sculpin\\Bundle\\MetaNavigationBundle\\": "" }
+    }
+}
