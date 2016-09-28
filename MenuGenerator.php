@@ -2,6 +2,7 @@
 
 namespace Janbuecker\Sculpin\Bundle\MetaNavigationBundle;
 
+use Sculpin\Core\Permalink\SourcePermalinkFactoryInterface;
 use Sculpin\Core\Sculpin;
 use Sculpin\Core\Event\SourceSetEvent;
 use Sculpin\Core\Source\SourceSet;
@@ -16,6 +17,20 @@ class MenuGenerator implements EventSubscriberInterface
      * @var array
      */
     protected $menu = [];
+
+    /**
+     * @var SourcePermalinkFactoryInterface
+     */
+    private $permalinkFactory;
+
+    /**
+     * MenuGenerator constructor.
+     * @param SourcePermalinkFactoryInterface $permalinkFactory
+     */
+    public function __construct(SourcePermalinkFactoryInterface $permalinkFactory)
+    {
+        $this->permalinkFactory = $permalinkFactory;
+    }
 
     /**
      * {@inheritdoc}
@@ -60,7 +75,8 @@ class MenuGenerator implements EventSubscriberInterface
                 $subgroup = $source->data()->get('subgroup') ?: null;
             }
 
-            $url = "/" . $this->cleanupUrl($source->relativePathname()) . "/";
+            $permalink = $this->permalinkFactory->create($source);
+            $url = rtrim($permalink->relativeUrlPath(), '/') . '/';
             $source->data()->set('url', $url);
 
             $pages[] = [
@@ -128,18 +144,5 @@ class MenuGenerator implements EventSubscriberInterface
         });
 
         return $branch;
-    }
-
-    /**
-     * @param string $url
-     * @return string
-     */
-    private function cleanupUrl($url)
-    {
-        $url = str_replace("/index.md", "", $url);
-        $url = str_replace("/index.html", "", $url);
-        $url = preg_replace("#\.md$#", "", $url);
-
-        return $url;
     }
 }
