@@ -39,3 +39,7 @@ To make a menu item visible, you have to add a `menu_title` to the page.
 | menu_style | enum   | An additional variable to set the list style option
 | group      | string | Parent menu item title on the first dimension (root)
 | subgroup   | string | Parent menu item title on the second dimension
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
