@@ -7,7 +7,7 @@ This bundle creates a multidimensional array based on meta options of pages. It 
 Add this bundle in your `composer.json` file by requiring it:
 
 ```
-composer require janbuecker/sculpin-meta-navigation-bundle ^0.2
+composer require janbuecker/sculpin-meta-navigation-bundle ^0.3
 ```
 
 Now you can register the bundle in your `SculpinKernel` class available on `app/SculpinKernel.php` file:
@@ -38,6 +38,8 @@ Menu item title
 Position of the item, low number equals top position
 * **menu_style**  
 An additional variable to set the list style option
+* **menu_chapter**  
+Simple boolean to inform the menu that it is a simple text
 * **group**  
 Parent menu item title on the first dimension (root)
 * **subgroup**  

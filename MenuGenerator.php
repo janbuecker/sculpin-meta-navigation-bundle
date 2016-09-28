@@ -52,6 +52,7 @@ class MenuGenerator implements EventSubscriberInterface
 
             $menuOrder = $source->data()->get('menu_order') ?: 1;
             $styling = $source->data()->get('menu_style') ?: null;
+            $isChapter = (bool) $source->data()->get('menu_chapter');
             $group = $source->data()->get('group') ?: null;
             $subgroup = null;
 
@@ -67,6 +68,7 @@ class MenuGenerator implements EventSubscriberInterface
                 'menu_title' => $menuTitle,
                 'menu_order' => $menuOrder,
                 'menu_style' => $styling,
+                'menu_chapter' => $isChapter,
                 'group' => $group,
                 'subgroup' => $subgroup,
                 'url' => $url,
