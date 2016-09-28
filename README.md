@@ -32,13 +32,16 @@ To make a menu item visible, you have to add a `menu_title` to the page.
 
 ### Options
 
-| Variable | Type | Description |
------------------------------
-| menu_title | string | Menu item title 
-| menu_order | number | Position of the item, low number equals top position
-| menu_style | enum   | An additional variable to set the list style option
-| group      | string | Parent menu item title on the first dimension (root)
-| subgroup   | string | Parent menu item title on the second dimension
+* **menu_title**  
+Menu item title
+* **menu_order**  
+Position of the item, low number equals top position
+* **menu_style**  
+An additional variable to set the list style option
+* **group**  
+Parent menu item title on the first dimension (root)
+* **subgroup**  
+Parent menu item title on the second dimension
 
 ## License
 
