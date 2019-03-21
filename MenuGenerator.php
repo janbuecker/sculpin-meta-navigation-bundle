@@ -50,7 +50,7 @@ class MenuGenerator implements EventSubscriberInterface
         $sourceSet = $sourceSetEvent->sourceSet();
         $pages = [];
 
-        foreach ($sourceSet->updatedSources() as $source) {
+        foreach ($sourceSet->allSources() as $source) {
             /** @var \Sculpin\Core\Source\FileSource $source */
 
             if ($source->isGenerated() || !$source->canBeFormatted()) {
