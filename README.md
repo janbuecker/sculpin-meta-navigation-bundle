@@ -7,7 +7,7 @@ This bundle creates a multidimensional array based on meta options of pages. It 
 Add this bundle in your `composer.json` file by requiring it:
 
 ```
-composer require janbuecker/sculpin-meta-navigation-bundle ^0.6
+composer require janbuecker/sculpin-meta-navigation-bundle ^0.7
 ```
 
 Now you can register the bundle in your `SculpinKernel` class available on `app/SculpinKernel.php` file:
