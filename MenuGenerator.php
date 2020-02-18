@@ -92,19 +92,7 @@ class MenuGenerator implements EventSubscriberInterface
             ];
         }
 
-        $menu = $this->buildMenu($pages);
-        foreach ($menu as $item) {
-            $key = array_search($item, $this->menu);
-
-            // if we have a hit, replace the matching menu item instead of appending
-            if (false !== $key) {
-                $this->menu[$key] = $item;
-                continue;
-            }
-
-            // fall back to appending unmatched items
-            $this->menu[] = $item;
-        }
+        $this->menu = $this->buildMenu($pages);
 
         $this->setMenu($sourceSet);
     }
