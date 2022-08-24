@@ -75,12 +75,16 @@ class MenuGenerator implements EventSubscriberInterface
                 $subgroup = $source->data()->get('subgroup') ?: null;
             }
 
+            if ($subgroup) {
+                $subsubgroup = $source->data()->get('subsubgroup') ?: null;
+            }
+
             $permalink = $this->permalinkFactory->create($source);
             $url = rtrim($permalink->relativeUrlPath(), '/') . '/';
             $source->data()->set('url', $url);
 
             $pages[] = [
-                'id' => $group.$subgroup.$menuTitle,
+                'id' => $group.$subgroup.$subsubgroup.$menuTitle,
                 'menu_title' => $menuTitle,
                 'menu_order' => $menuOrder,
                 'menu_style' => $styling,
@@ -88,7 +92,7 @@ class MenuGenerator implements EventSubscriberInterface
                 'group' => $group,
                 'subgroup' => $subgroup,
                 'url' => $url,
-                'parent' => $group.$subgroup,
+                'parent' => $group.$subgroup.$subsubgroup,
             ];
         }
 
