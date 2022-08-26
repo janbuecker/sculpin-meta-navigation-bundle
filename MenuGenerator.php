@@ -70,6 +70,7 @@ class MenuGenerator implements EventSubscriberInterface
             $isChapter = (bool) $source->data()->get('menu_chapter');
             $group = $source->data()->get('group') ?: null;
             $subgroup = null;
+            $subsubgroup = null;
 
             if ($group) {
                 $subgroup = $source->data()->get('subgroup') ?: null;
@@ -91,6 +92,7 @@ class MenuGenerator implements EventSubscriberInterface
                 'menu_chapter' => $isChapter,
                 'group' => $group,
                 'subgroup' => $subgroup,
+                'subsubgroup' => $subsubgroup,
                 'url' => $url,
                 'parent' => $group.$subgroup.$subsubgroup,
             ];
